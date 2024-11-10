@@ -1,10 +1,10 @@
-import { ScrollArea, SimpleGrid } from "@mantine/core"
+import { Blockquote, Center, ScrollArea, SimpleGrid } from "@mantine/core"
 import DashboardCard from "../components/DashboardCard"
 
 export const Home = () => {
   return (
     <ScrollArea h="100%">
-      <SimpleGrid cols={2}>
+      <SimpleGrid type="container" cols={{ base: 1, "800px": 2, "1300px": 3 }}>
         <DashboardCard
           title="My Account"
           to="/account"
@@ -51,6 +51,16 @@ export const Home = () => {
           Marketplace for exercises.
         </DashboardCard>
       </SimpleGrid>
+      <Center p="xl">
+        <Blockquote color="blue" cite="- Peer2Peer Team" mt="xl" w="75%">
+          Peer2Peer is an interactive learning platform that allows children to
+          learn digital skills and basic competencies through play. The various
+          subject areas are packaged in small adventures. The entire eco system
+          is free and opensource with a focus on privacy and extendability.
+          Exercises can be shared over the community, reducing time preparing.
+          Choose on the pannel above what you want to do.
+        </Blockquote>
+      </Center>
     </ScrollArea>
   )
 }
