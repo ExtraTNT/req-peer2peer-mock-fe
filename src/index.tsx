@@ -2,11 +2,28 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import "@mantine/core/styles.css"
-import { createTheme, MantineProvider } from "@mantine/core"
+import "@mantine/charts/styles.css"
+import { createTheme, MantineColorsTuple, MantineProvider } from "@mantine/core"
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
+const colors: MantineColorsTuple = [
+  "#ecf4ff",
+  "#dce4f5",
+  "#b9c7e2",
+  "#94a8d0",
+  "#748dc0",
+  "#5f7cb7",
+  "#5474b4",
+  "#44639f",
+  "#3a5890",
+  "#2c4b80",
+]
 const theme = createTheme({
   /** Put your mantine theme override here */
+  colors: {
+    blue: colors,
+  },
+
   fontFamily:
     "Roboto, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans serif",
   fontFamilyMonospace:

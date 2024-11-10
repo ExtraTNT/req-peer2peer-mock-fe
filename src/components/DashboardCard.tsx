@@ -8,6 +8,7 @@ import {
   Tooltip,
   useComputedColorScheme,
 } from "@mantine/core"
+import { useHover } from "@mantine/hooks"
 import { IconActivity } from "@tabler/icons-react"
 import { useNavigate } from "react-router-dom"
 
@@ -30,15 +31,20 @@ export default function DashboardCard({
     getInitialValueInEffect: true,
   })
   const navigate = useNavigate()
+  const { hovered, ref } = useHover()
 
   return (
     <Tooltip
       label={label ?? to ?? null}
       opened={!(label || to) ? false : undefined}
+      openDelay={250}
     >
       <Stack
-        bg={computedColorScheme === "dark" ? "dark" : "gray"}
-        p="md"
+        ref={ref}
+        bg={computedColorScheme === "dark" ? "dark" : "blue.2"}
+        style={{ borderRadius: "8px" }}
+        p={hovered ? "lg" : "xl"}
+        gap="md"
         onClick={(e) => {
           navigate(to ?? "")
         }}
@@ -46,8 +52,8 @@ export default function DashboardCard({
         <Group grow>
           <Group>
             <Center>{icon || <IconActivity size={24} />}</Center>
-            <Stack gap={0}>
-              <Title>{title}</Title>
+            <Stack gap="md">
+              <Title size={hovered ? "xl" : "lg"}>{title}</Title>
             </Stack>
           </Group>
         </Group>

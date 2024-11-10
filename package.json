@@ -6,7 +6,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.13.3",
     "@mantine/carousel": "^7.13.2",
-    "@mantine/charts": "^7.13.2",
+    "@mantine/charts": "^7.13.5",
     "@mantine/code-highlight": "^7.13.2",
     "@mantine/core": "^7.13.2",
     "@mantine/dates": "^7.13.2",

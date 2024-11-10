@@ -6,7 +6,6 @@ import {
   IconHome2,
   IconMonkeybar,
   IconSchool,
-  IconUserCircle,
 } from "@tabler/icons-react"
 
 export const NavList = () => {
@@ -25,7 +24,7 @@ export const NavList = () => {
         />
         <NavLink
           href="/students"
-          label="Students"
+          label="My Students"
           leftSection={<IconSchool size="1rem" stroke={1.5} />}
         />
         <NavLink
@@ -35,17 +34,17 @@ export const NavList = () => {
         />
         <NavLink
           href="/activities"
-          label="Activities"
+          label="My Activities"
           leftSection={<IconCalendarTime size="1rem" stroke={1.5} />}
         />
         <NavLink
-          href="/excercise"
-          label="My Excercises"
+          href="/exercises"
+          label="My exercises"
           leftSection={<IconMonkeybar size="1rem" stroke={1.5} />}
         />
         <NavLink
-          href="/store/excercise"
-          label="Discover Excercises"
+          href="/store/exercise"
+          label="Discover exercises"
           leftSection={<IconBuildingStore size="1rem" stroke={1.5} />}
         />
       </Stack>
