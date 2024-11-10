@@ -86,14 +86,6 @@ export const Statistics = () => {
     }
   )
 
-  /*
-  console.log("Student              | Tests with low grades | Grades")
-  console.log("-----------------------------------------------------------")
-  studentsWhoNeedHelp.forEach((row) => {
-    console.log(`${row.student} | ${row.testsWithLowGrades} | ${row.grades}`)
-  })
-  */
-
   let lineData: { exercise: string; avg: number; count: number }[] = []
   data[0].data.forEach((entry) => {
     let set = false
