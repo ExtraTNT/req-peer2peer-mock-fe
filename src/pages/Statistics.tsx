@@ -11,15 +11,18 @@ import { ScatterChart, LineChart } from "@mantine/charts"
 import { data } from "../Mock/StudentsGradesExercise"
 import { students } from "../Mock/Students"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface TableRow {
   student: string
+  id: string
   testsWithLowGrades: string
   grades: string
 }
 
 export const Statistics = () => {
   const [exercise, setExercise] = useState("1")
+  const navigate = useNavigate()
 
   const setExerciseHelper = (name: string) => {
     switch (name) {
@@ -44,6 +47,7 @@ export const Statistics = () => {
     .map((student) => ({
       firstName: student.firstName,
       lastName: student.name,
+      id: student.id,
       modulesWithLowGrade: student.exercises
         .map((e, moduleIndex) => ({
           exerciseId: e.id,
@@ -67,7 +71,7 @@ export const Statistics = () => {
       student.modulesWithLowGrade.forEach((module) => {
         module.lowGrades.forEach((gradeInfo) => {
           if (gradeInfo != null) {
-            lowGradeTests.push(`${module.exerciseId}.${gradeInfo.testNumber}`)
+            lowGradeTests.push(`${gradeInfo.testNumber}`)
             lowGrades.push(gradeInfo.grade)
           }
         })
@@ -75,6 +79,7 @@ export const Statistics = () => {
 
       return {
         student: `${student.firstName} ${student.lastName}`,
+        id: student.id,
         testsWithLowGrades: lowGradeTests.join(", "),
         grades: lowGrades.join(", "),
       }
@@ -182,25 +187,27 @@ export const Statistics = () => {
           </Center>
         </Stack>
         <Stack gap="md">
-          <Text ta="center">Students, who need support</Text>
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Name</Table.Th>
-                <Table.Th>Tests (Exercise.TestNr)</Table.Th>
-                <Table.Th>Grades</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {studentsWhoNeedHelp.map((e) => (
+          <Table.ScrollContainer minWidth={450}>
+            <Text ta="center">Students, who need support</Text>
+            <Table highlightOnHover>
+              <Table.Thead>
                 <Table.Tr>
-                  <Table.Td>{e.student}</Table.Td>
-                  <Table.Td>{e.testsWithLowGrades}</Table.Td>
-                  <Table.Td>{e.grades}</Table.Td>
+                  <Table.Th>Name</Table.Th>
+                  <Table.Th>Tests (TestNr)</Table.Th>
+                  <Table.Th>Grades</Table.Th>
                 </Table.Tr>
-              ))}
-            </Table.Tbody>
-          </Table>
+              </Table.Thead>
+              <Table.Tbody>
+                {studentsWhoNeedHelp.map((e) => (
+                  <Table.Tr onClick={(_) => navigate(`../${e.id}`)}>
+                    <Table.Td>{e.student}</Table.Td>
+                    <Table.Td>{e.testsWithLowGrades}</Table.Td>
+                    <Table.Td>{e.grades}</Table.Td>
+                  </Table.Tr>
+                ))}
+              </Table.Tbody>
+            </Table>
+          </Table.ScrollContainer>
         </Stack>
       </SimpleGrid>
     </>

@@ -3,6 +3,7 @@ import { NotFound } from "../pages/NotFound"
 import { Statistics } from "../pages/Statistics"
 import { Home } from "../pages/Home"
 import { Students } from "../pages/Students"
+import { Student } from "../pages/Student"
 
 export const CustomRouter = () => {
   return (
@@ -10,6 +11,7 @@ export const CustomRouter = () => {
       <Routes>
         <Route path="/students">
           <Route path="statistics" element={<Statistics />} />
+          <Route path=":id" element={<Student />} />
           <Route path="" element={<Students />} />
         </Route>
         <Route path="/">
