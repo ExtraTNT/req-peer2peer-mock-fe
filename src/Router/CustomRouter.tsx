@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { NotFound } from "../pages/NotFound"
 import { Statistics } from "../pages/Statistics"
-import { Box } from "@mantine/core"
 import { Home } from "../pages/Home"
+import { Students } from "../pages/Students"
 
 export const CustomRouter = () => {
   return (
@@ -10,7 +10,7 @@ export const CustomRouter = () => {
       <Routes>
         <Route path="/students">
           <Route path="statistics" element={<Statistics />} />
-          <Route path="" element={<div>asdf</div>} />
+          <Route path="" element={<Students />} />
         </Route>
         <Route path="/">
           <Route path="page1" element={<div>test</div>} />

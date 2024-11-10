@@ -44,19 +44,16 @@ export const Statistics = () => {
     .map((student) => ({
       firstName: student.firstName,
       lastName: student.name,
-      modulesWithLowGrade: student.modules
-        .map((module, moduleIndex) => ({
-          moduleId: module.id,
-          lowGrades: module.grade
+      modulesWithLowGrade: student.exercises
+        .map((e, moduleIndex) => ({
+          exerciseId: e.id,
+          lowGrades: e.grade
             .map((grade, gradeIndex) =>
               grade < 60 ? { grade, testNumber: gradeIndex + 1 } : null
             )
             .filter((gradeInfo) => gradeInfo !== null),
         }))
-        .filter(
-          (module) =>
-            module.lowGrades.length > 0 && module.moduleId === exercise
-        ),
+        .filter((e) => e.lowGrades.length > 0 && e.exerciseId === exercise),
     }))
     .filter((student) => student.modulesWithLowGrade.length > 0)
 
@@ -70,7 +67,7 @@ export const Statistics = () => {
       student.modulesWithLowGrade.forEach((module) => {
         module.lowGrades.forEach((gradeInfo) => {
           if (gradeInfo != null) {
-            lowGradeTests.push(`${module.moduleId}.${gradeInfo.testNumber}`)
+            lowGradeTests.push(`${module.exerciseId}.${gradeInfo.testNumber}`)
             lowGrades.push(gradeInfo.grade)
           }
         })
