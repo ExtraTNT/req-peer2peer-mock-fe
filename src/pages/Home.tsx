@@ -37,7 +37,7 @@ export const Home = () => {
         </DashboardCard>
         <DashboardCard
           title="My exercises"
-          to="/exercise"
+          to="/exercises"
           label="See all of your exercises. exercises are the blueprint for
           activities."
         >
