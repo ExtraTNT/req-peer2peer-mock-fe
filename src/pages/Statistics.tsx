@@ -48,8 +48,8 @@ export const Statistics = () => {
       firstName: student.firstName,
       lastName: student.name,
       id: student.id,
-      modulesWithLowGrade: student.exercises
-        .map((e, moduleIndex) => ({
+      exercisesWithLowGrade: student.exercises
+        .map((e, i) => ({
           exerciseId: e.id,
           lowGrades: e.grade
             .map((grade, gradeIndex) =>
@@ -59,7 +59,7 @@ export const Statistics = () => {
         }))
         .filter((e) => e.lowGrades.length > 0 && e.exerciseId === exercise),
     }))
-    .filter((student) => student.modulesWithLowGrade.length > 0)
+    .filter((student) => student.exercisesWithLowGrade.length > 0)
 
   console.log(studentsWithLowGrades)
 
@@ -68,7 +68,7 @@ export const Statistics = () => {
       const lowGradeTests: string[] = []
       const lowGrades: number[] = []
 
-      student.modulesWithLowGrade.forEach((module) => {
+      student.exercisesWithLowGrade.forEach((module) => {
         module.lowGrades.forEach((gradeInfo) => {
           if (gradeInfo != null) {
             lowGradeTests.push(`${gradeInfo.testNumber}`)
@@ -163,7 +163,7 @@ export const Statistics = () => {
                 { value: 70, color: "green", tooltip: "Passing: 10 / 15" },
                 { value: 12, color: "yellow", tooltip: "Endangered 2 / 15" },
                 { value: 6, color: "red", tooltip: "Failing 1 / 15" },
-                { value: 12, color: "gray", tooltip: "Unknown 2 / 15" },
+                { value: 12, color: "gray", tooltip: "Not Completed 2 / 15" },
               ]}
               label={
                 <>

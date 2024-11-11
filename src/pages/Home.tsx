@@ -45,7 +45,7 @@ export const Home = () => {
         </DashboardCard>
         <DashboardCard
           title="Discover exercises"
-          to="/store/exercise"
+          to="/store/exercises"
           label="See officially published or community created exercises and use them for your own activities."
         >
           Marketplace for exercises.

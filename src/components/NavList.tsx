@@ -43,7 +43,7 @@ export const NavList = () => {
           leftSection={<IconMonkeybar size="1rem" stroke={1.5} />}
         />
         <NavLink
-          href="/store/exercise"
+          href="/store/exercises"
           label="Discover exercises"
           leftSection={<IconBuildingStore size="1rem" stroke={1.5} />}
         />
