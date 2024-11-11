@@ -1,3 +1,10 @@
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+
 export const Store = () => {
-  return <>store</>
+  const navigate = useNavigate()
+
+  useEffect(() => navigate("exercises"), [])
+
+  return <></>
 }
