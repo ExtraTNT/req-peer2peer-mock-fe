@@ -1,5 +1,5 @@
 import { Table } from "@mantine/core"
-import { students } from "../Mock/Students"
+import { students } from "../../Mock/Students"
 import { useNavigate } from "react-router-dom"
 
 interface Exercise {

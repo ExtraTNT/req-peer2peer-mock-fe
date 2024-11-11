@@ -8,8 +8,8 @@ import {
   Table,
 } from "@mantine/core"
 import { ScatterChart, LineChart } from "@mantine/charts"
-import { data } from "../Mock/StudentsGradesExercise"
-import { students } from "../Mock/Students"
+import { data } from "../../Mock/StudentsGradesExercise"
+import { students } from "../../Mock/Students"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 

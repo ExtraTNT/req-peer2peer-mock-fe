@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { students } from "../Mock/Students"
+import { students } from "../../Mock/Students"
 import {
   Avatar,
   Center,
