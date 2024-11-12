@@ -5,7 +5,7 @@ type Student = {
   exercises: { id: string; grade: number[]; final: boolean }[]
 }
 
-export const students: Student[] = [
+export const studentsMock: Student[] = [
   {
     name: "Muster",
     firstName: "Max",

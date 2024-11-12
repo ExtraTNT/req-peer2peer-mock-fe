@@ -20,7 +20,7 @@ const text1 =
 const text2 =
   "Lorem ipsum odor amet, consectetuer adipiscing elit. Platea laoreet ex adipiscing ullamcorper adipiscing natoque lobortis. Quis molestie mauris amet ultrices ultrices iaculis accumsan magnis. Inceptos iaculis tempor dis; est erat sapien. Cubilia nibh proin dignissim sollicitudin cras justo."
 
-export const Exercise: Exercie[] = [
+export const exerciseMock: Exercie[] = [
   {
     name: "Cpp1",
     id: "1",

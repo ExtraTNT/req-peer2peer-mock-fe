@@ -1,5 +1,5 @@
 import { Table } from "@mantine/core"
-import { students } from "../../Mock/Students"
+import { studentsMock } from "../../Mock/Students"
 import { useNavigate } from "react-router-dom"
 
 interface Exercise {
@@ -70,7 +70,7 @@ const getAllExerciseIds = (
 }
 
 export const Students = () => {
-  const transformedData = transformStudentData(students)
+  const transformedData = transformStudentData(studentsMock)
   const allExerciseIds = getAllExerciseIds(transformedData)
   const navigate = useNavigate()
 

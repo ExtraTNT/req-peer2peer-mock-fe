@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { students } from "../../Mock/Students"
+import { studentsMock } from "../../Mock/Students"
 import {
   Avatar,
   Center,
@@ -33,7 +33,7 @@ export const Student = () => {
   >(undefined)
 
   function getStudentOverview(studentId: string): StudentOverview | undefined {
-    const student = students.find((s) => s.id === studentId)
+    const student = studentsMock.find((s) => s.id === studentId)
 
     if (!student) return undefined
 

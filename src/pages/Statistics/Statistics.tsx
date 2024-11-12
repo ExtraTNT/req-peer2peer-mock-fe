@@ -9,7 +9,7 @@ import {
 } from "@mantine/core"
 import { ScatterChart, LineChart } from "@mantine/charts"
 import { data } from "../../Mock/StudentsGradesExercise"
-import { students } from "../../Mock/Students"
+import { studentsMock } from "../../Mock/Students"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -43,7 +43,7 @@ export const Statistics = () => {
     }
   }
 
-  const studentsWithLowGrades = students
+  const studentsWithLowGrades = studentsMock
     .map((student) => ({
       firstName: student.firstName,
       lastName: student.name,

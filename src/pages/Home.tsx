@@ -1,5 +1,18 @@
-import { Blockquote, Center, ScrollArea, SimpleGrid } from "@mantine/core"
+import {
+  Avatar,
+  Blockquote,
+  Center,
+  ScrollArea,
+  SimpleGrid,
+} from "@mantine/core"
 import DashboardCard from "../components/DashboardCard"
+import {
+  IconBuildingStore,
+  IconCalendarTime,
+  IconChartDots,
+  IconMonkeybar,
+  IconSchool,
+} from "@tabler/icons-react"
 
 export const Home = () => {
   return (
@@ -9,6 +22,7 @@ export const Home = () => {
           title="My Account"
           to="/account"
           label="Manage your teacher account."
+          icon={<Avatar radius="xl" />}
         >
           Manage your teacher account.
         </DashboardCard>
@@ -16,6 +30,7 @@ export const Home = () => {
           title="My Students"
           to="/students"
           label="Manage your students and see performances."
+          icon={<IconSchool stroke={1.5} />}
         >
           Manage your students and see performances.
         </DashboardCard>
@@ -23,6 +38,7 @@ export const Home = () => {
           title="Statistics"
           to="/students/statistics"
           label="See the performance (completion, points) of all your students."
+          icon={<IconChartDots stroke={1.5} />}
         >
           See the performances over all of your students.
         </DashboardCard>
@@ -32,6 +48,7 @@ export const Home = () => {
           label="See all of your activities. Activities are planed / past exercises
           for students, consisting of an exercise (blueprint), time and a list
           of students."
+          icon={<IconCalendarTime stroke={1.5} />}
         >
           See all of your activities.
         </DashboardCard>
@@ -40,6 +57,7 @@ export const Home = () => {
           to="/exercises"
           label="See all of your exercises. exercises are the blueprint for
           activities."
+          icon={<IconMonkeybar stroke={1.5} />}
         >
           See all of your exercises.
         </DashboardCard>
@@ -47,6 +65,7 @@ export const Home = () => {
           title="Discover exercises"
           to="/store/exercises"
           label="See officially published or community created exercises and use them for your own activities."
+          icon={<IconBuildingStore stroke={1.5} />}
         >
           Marketplace for exercises.
         </DashboardCard>

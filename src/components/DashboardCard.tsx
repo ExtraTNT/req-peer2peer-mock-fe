@@ -42,7 +42,7 @@ export default function DashboardCard({
       <Stack
         ref={ref}
         bg={computedColorScheme === "dark" ? "dark" : "blue.2"}
-        style={{ borderRadius: "8px" }}
+        style={{ borderRadius: "8px", cursor: to ? "pointer" : "default" }}
         p={hovered ? "lg" : "xl"}
         gap="md"
         onClick={(e) => {

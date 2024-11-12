@@ -12,12 +12,14 @@ import {
 import { useHover } from "@mantine/hooks"
 import { useNavigate } from "react-router-dom"
 
-type DashboardCardProps = {
+type ExerciseCardProps = {
   title: string
   description: string
   id: string
   author: string
   img?: string
+  nohover?: boolean
+  nolink?: boolean
   rating: number
   children?: React.ReactNode
 }
@@ -29,8 +31,10 @@ export default function ExerciseStoreItem({
   img,
   author,
   rating,
+  nohover,
+  nolink,
   children,
-}: DashboardCardProps) {
+}: ExerciseCardProps) {
   const computedColorScheme = useComputedColorScheme("light", {
     getInitialValueInEffect: true,
   })
@@ -41,17 +45,17 @@ export default function ExerciseStoreItem({
     <Stack
       ref={ref}
       bg={computedColorScheme === "dark" ? "dark" : "blue.2"}
-      style={{ borderRadius: "8px" }}
-      p={hovered ? "lg" : "xl"}
+      style={{ borderRadius: "8px", cursor: nolink ? "inherit" : "pointer" }}
+      p={nohover ? "xl" : hovered ? "lg" : "xl"}
       gap="md"
       onClick={(e) => {
-        navigate(id)
+        navigate(nolink ? "" : id)
       }}
     >
       <Group grow>
         <Group>
           <Stack gap="md">
-            <Title size={hovered ? "xl" : "lg"}>{title}</Title>
+            <Title size={nohover ? "lg" : hovered ? "xl" : "lg"}>{title}</Title>
           </Stack>
         </Group>
       </Group>
@@ -59,6 +63,7 @@ export default function ExerciseStoreItem({
         <Text h="100%" lineClamp={3}>
           {description}
         </Text>
+
         <Image src={img} p="md"></Image>
         <Text>Rating: </Text>
         <Rating readOnly defaultValue={rating} />
