@@ -7,6 +7,7 @@ import {
   IconMonkeybar,
   IconSchool,
 } from "@tabler/icons-react"
+import { accountMock } from "../Mock/Account"
 
 export const NavList = () => {
   return (
@@ -14,8 +15,8 @@ export const NavList = () => {
       <Stack>
         <NavLink
           href="/account"
-          label="My Account"
-          leftSection={<Avatar radius="xl" />}
+          label={accountMock.email}
+          leftSection={<Avatar radius="xl" src={accountMock.avatar} />}
         />
         <NavLink
           href="/"

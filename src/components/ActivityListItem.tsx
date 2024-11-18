@@ -1,9 +1,7 @@
 import {
-  Box,
   Flex,
   Group,
-  Image,
-  Rating,
+  Progress,
   Stack,
   Text,
   Title,
@@ -67,10 +65,13 @@ export default function ActivityListItem({
         navigate(id)
       }}
     >
-      <Group grow>
+      <Group grow c={final ? "yellow" : undefined}>
         <Group>
           <Stack gap="md">
-            <Title size={hovered ? "xl" : "lg"}>{title}</Title>
+            <Title size={hovered ? "xl" : "lg"}>
+              {title}
+              {final ? " - Final exam" : ""}
+            </Title>
           </Stack>
         </Group>
       </Group>
@@ -78,6 +79,12 @@ export default function ActivityListItem({
         <Text h="100%" lineClamp={3}>
           {description}
         </Text>
+        <Text>{students.length} Students</Text>
+        <Group gap="xs" w="100%" wrap="nowrap">
+          <Text w="min-content">{from.toLocaleDateString()}</Text>
+          <Progress value={20} w="100%" />
+          <Text w="min-content">{to.toLocaleDateString()}</Text>
+        </Group>
 
         <ExerciseStoreItem
           title={exerciseTitle}

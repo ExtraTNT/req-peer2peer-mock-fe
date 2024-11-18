@@ -1,10 +1,18 @@
-import { Box, Center, FocusTrap, Input, SimpleGrid } from "@mantine/core"
+import {
+  Box,
+  Button,
+  Center,
+  FocusTrap,
+  Input,
+  SimpleGrid,
+} from "@mantine/core"
 import { activitiesMock } from "../../Mock/Activities"
 import { exerciseMock } from "../../Mock/Exercise"
 import { studentsMock } from "../../Mock/Students"
 import { IconSearch } from "@tabler/icons-react"
 import { useState } from "react"
 import ActivityListItem from "../../components/ActivityListItem"
+import { useNavigate } from "react-router-dom"
 
 type ActivityMapped = {
   id: string
@@ -59,9 +67,9 @@ export const Activities = () => {
       exercise: exercise,
     }
   })
-  console.log(activities)
 
   const [search, setSearch] = useState("")
+  const navigate = useNavigate()
 
   return (
     <Box h="100%">
@@ -73,6 +81,9 @@ export const Activities = () => {
             onChange={(event) => setSearch(event.currentTarget.value)}
             leftSection={<IconSearch size={16} />}
           />
+          <Button onClick={(e) => navigate("create")} m="md" variant="outline">
+            Create new activity
+          </Button>
         </Center>
       </FocusTrap>
       <SimpleGrid type="container" cols={{ base: 1, "800px": 2, "1300px": 3 }}>

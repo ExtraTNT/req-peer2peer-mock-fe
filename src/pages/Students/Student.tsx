@@ -25,6 +25,7 @@ export const Student = () => {
     firstName: string
     lastName: string
     exerciseCount: number
+    avatar: string
     exercisesOverview: ExerciseOverview[]
   }
   const { id } = useParams()
@@ -54,6 +55,7 @@ export const Student = () => {
     return {
       firstName: student.firstName,
       lastName: student.name,
+      avatar: student.avatar,
       exerciseCount: length,
       exercisesOverview,
     }
@@ -87,7 +89,7 @@ export const Student = () => {
         <Stack>
           <Group justify="center">
             <Avatar
-              color="cyan"
+              src={studentOverview.avatar}
               radius="xl"
             >{`${studentOverview?.firstName[0]}${studentOverview?.lastName[0]}`}</Avatar>
             <TextInput

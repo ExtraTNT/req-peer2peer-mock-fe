@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client"
 import App from "./App"
 import "@mantine/core/styles.css"
 import "@mantine/charts/styles.css"
+import "@mantine/notifications/styles.css"
+import "@mantine/dates/styles.css"
 import { createTheme, MantineColorsTuple, MantineProvider } from "@mantine/core"
+import { Notifications } from "@mantine/notifications"
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 const colors: MantineColorsTuple = [
@@ -33,6 +36,7 @@ const theme = createTheme({
 root.render(
   <React.StrictMode>
     <MantineProvider theme={theme} defaultColorScheme="light">
+      <Notifications />
       <App />
     </MantineProvider>
   </React.StrictMode>

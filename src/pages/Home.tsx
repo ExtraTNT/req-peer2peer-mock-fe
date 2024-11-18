@@ -13,6 +13,7 @@ import {
   IconMonkeybar,
   IconSchool,
 } from "@tabler/icons-react"
+import { accountMock } from "../Mock/Account"
 
 export const Home = () => {
   return (
@@ -22,7 +23,7 @@ export const Home = () => {
           title="My Account"
           to="/account"
           label="Manage your teacher account."
-          icon={<Avatar radius="xl" />}
+          icon={<Avatar radius="xl" src={accountMock.avatar} />}
         >
           Manage your teacher account.
         </DashboardCard>
