@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   Group,
   Image,
@@ -22,6 +21,8 @@ type ExerciseCardProps = {
   nolink?: boolean
   rating: number
   children?: React.ReactNode
+  w?: string | number
+  hardlink?: string
 }
 
 export default function ExerciseStoreItem({
@@ -33,6 +34,8 @@ export default function ExerciseStoreItem({
   rating,
   nohover,
   nolink,
+  w,
+  hardlink,
   children,
 }: ExerciseCardProps) {
   const computedColorScheme = useComputedColorScheme("light", {
@@ -49,8 +52,9 @@ export default function ExerciseStoreItem({
       p={nohover ? "xl" : hovered ? "lg" : "xl"}
       gap="md"
       onClick={(e) => {
-        navigate(nolink ? "" : id)
+        navigate(nolink ? "" : hardlink ? hardlink : id)
       }}
+      w={w}
     >
       <Group grow>
         <Group>
