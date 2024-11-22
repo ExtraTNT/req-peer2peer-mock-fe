@@ -68,8 +68,8 @@ export const Statistics = () => {
       const lowGradeTests: string[] = []
       const lowGrades: number[] = []
 
-      student.exercisesWithLowGrade.forEach((module) => {
-        module.lowGrades.forEach((gradeInfo) => {
+      student.exercisesWithLowGrade.forEach((e) => {
+        e.lowGrades.forEach((gradeInfo) => {
           if (gradeInfo != null) {
             lowGradeTests.push(`${gradeInfo.testNumber}`)
             lowGrades.push(gradeInfo.grade)
