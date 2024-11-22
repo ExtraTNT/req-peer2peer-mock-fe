@@ -13,6 +13,7 @@ import {
   Table,
   Textarea,
   TextInput,
+  Text,
 } from "@mantine/core"
 
 import { DatePickerInput } from "@mantine/dates"
@@ -68,7 +69,7 @@ export const Activity = () => {
 
   return (
     <>
-      <Modal opened={opened} onClose={close} title="Are you shure?">
+      <Modal opened={opened} onClose={close} title="Are you sure?">
         <Group justify="space-evenly" align="center" p="md">
           <Button
             variant="outline"
@@ -140,6 +141,7 @@ export const Activity = () => {
               Save
             </Button>
           </Group>
+          <Text>Activity</Text>
           <Group justify="center" mt="md" w="100%">
             <TextInput label="Title" value={activity.name} />
             <DatePickerInput label="From" value={activity.from} />
@@ -155,6 +157,7 @@ export const Activity = () => {
             resize="both"
           />
 
+          <Text>Students</Text>
           <Table.ScrollContainer
             minWidth={100 * (generateTitles(students, activity).length + 1)}
           >
@@ -242,6 +245,7 @@ export const Activity = () => {
               </Table.Tbody>
             </Table>
           </Table.ScrollContainer>
+          <Text>Exercise</Text>
           <Group w="100%" justify="center" align="center">
             <Button
               variant="outline"

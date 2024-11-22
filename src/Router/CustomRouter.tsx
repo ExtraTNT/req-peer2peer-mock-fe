@@ -30,6 +30,7 @@ export const CustomRouter = () => {
         </Route>
         <Route path="/activities">
           <Route path="create" element={<ActivitiesCreate />} />
+          <Route path="create/:id" element={<ActivitiesCreate />} />
           <Route path=":id" element={<Activity />} />
           <Route path="" element={<Activities />} />
         </Route>

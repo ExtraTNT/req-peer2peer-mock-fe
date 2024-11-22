@@ -1,4 +1,4 @@
-type Student = {
+export type Student = {
   name: string
   firstName: string
   avatar: string

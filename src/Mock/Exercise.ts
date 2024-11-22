@@ -1,4 +1,4 @@
-type Exercie = {
+export type Exercie = {
   id: string
   img: string
   name: string
