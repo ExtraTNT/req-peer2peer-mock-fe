@@ -12,6 +12,9 @@ import { data } from "../../Mock/StudentsGradesExercise"
 import { studentsMock } from "../../Mock/Students"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { exerciseMock } from "../../Mock/Exercise"
+import { accountMock } from "../../Mock/Account"
+import { activitiesMock } from "../../Mock/Activities"
 
 interface TableRow {
   student: string
@@ -109,6 +112,8 @@ export const Statistics = () => {
     v.avg = v.avg / v.count
   })
 
+  const now = new Date()
+
   return (
     <>
       <Center>
@@ -200,6 +205,23 @@ export const Statistics = () => {
               </Table.Tbody>
             </Table>
           </Table.ScrollContainer>
+        </Stack>
+
+        <Stack gap="md">
+          <Text ta="center">
+            Number of Exercises:{" "}
+            {
+              exerciseMock.filter((e) => e.author === accountMock.firstName)
+                .length
+            }
+          </Text>
+          <Text ta="center">
+            Number of current Activities:{" "}
+            {activitiesMock.filter((a) => a.from <= now && a.to >= now).length}{" "}
+            / {activitiesMock.length}
+          </Text>
+          <Text ta="center">Class size: {accountMock.class.length}</Text>
+          <Text ta="center">Average Grade: 79</Text>
         </Stack>
       </SimpleGrid>
     </>

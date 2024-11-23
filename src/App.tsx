@@ -66,6 +66,7 @@ export const App = () => {
           <NavLink
             ta="right"
             px="md"
+            py="0"
             variant="filled"
             href="https://github.com/ExtraTNT/req-peer2peer-mock-fe"
             label={
