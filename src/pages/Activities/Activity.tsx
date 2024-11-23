@@ -30,8 +30,7 @@ export const Activity = () => {
   const students = studentsMock.filter((s) =>
     activity.studentIds.includes(s.id)
   )
-  console.log(activity)
-  console.log(exerciseMock)
+
   const exercise = exerciseMock.filter((e) => e.id === activity.exerciseId)[0]
   const navigate = useNavigate()
   const [opened, { open, close }] = useDisclosure(false)
@@ -153,6 +152,7 @@ export const Activity = () => {
             value={activity.description}
             style={{ minWidth: "0px", maxWidth: "90%" }}
             w="40%"
+            autosize
             minRows={2}
             resize="both"
           />

@@ -22,15 +22,8 @@ import { accountMock } from "../../Mock/Account"
 import { Activity } from "../../Mock/Activities"
 import { exerciseMock } from "../../Mock/Exercise"
 import { studentsMock } from "../../Mock/Students"
+import { uuidv4 } from "../../utils/uuidv4"
 
-const uuidv4 = () => {
-  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
-    (
-      +c ^
-      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))
-    ).toString(16)
-  )
-}
 export const ActivitiesCreate = () => {
   // Idea: get the exercise id from the passed id, if it is equal to !undefined, use it to filter the exercise
   // if it is equals to undefined, show the exercise chooser...
@@ -64,8 +57,7 @@ export const ActivitiesCreate = () => {
     superSetActivity(tmp)
     superSetExerciseId(id)
   }
-  // get latest exercise
-  const exercise = exerciseMock.filter((e) => e.id === exerciseId)[0]
+
   const navigate = useNavigate()
   const [opened, { open, close }] = useDisclosure(false)
   const [onlyPrivate, setOnlyPrivate] = useState(false)

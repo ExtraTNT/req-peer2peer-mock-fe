@@ -1,8 +1,8 @@
-import { ScrollArea, SimpleGrid } from "@mantine/core"
 import { useParams } from "react-router-dom"
+import { ExerciseDetail } from "../../components/ExerciseDetail"
 
 export const ExerciseStore = () => {
   const { id } = useParams()
 
-  return <ScrollArea h="100%">exercise store {id}</ScrollArea>
+  return <ExerciseDetail id={id} store />
 }
