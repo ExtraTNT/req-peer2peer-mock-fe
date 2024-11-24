@@ -12,6 +12,7 @@ import {
   Input,
   Image,
   Modal,
+  Checkbox,
 } from "@mantine/core"
 import { notifications } from "@mantine/notifications"
 import { IconChevronDown } from "@tabler/icons-react"
@@ -48,7 +49,12 @@ export const ExerciseDetail = ({ id, detail, store }: ExerciseDetailProps) => {
     tmp[id] = value
     superSetData(tmp)
   }
-
+  const togglePublic = () => {
+    if (store) return
+    let tmp = { ...data }
+    tmp.public = !tmp.public
+    superSetData(tmp)
+  }
   return (
     <>
       <Modal opened={opened} onClose={close} title="Are you sure?">
@@ -148,6 +154,11 @@ export const ExerciseDetail = ({ id, detail, store }: ExerciseDetailProps) => {
                 </option>
               )}
             </Input>
+            <Checkbox
+              onChange={(e) => togglePublic()}
+              checked={data.public}
+              label="Share with others"
+            />
           </Group>
           <Textarea
             label="Description"
